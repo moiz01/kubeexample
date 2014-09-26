@@ -31,10 +31,6 @@ RUN echo '<?php phpInfo(); ?>' > /var/www/html/info.php
 ADD ./epel.repo /etc/yum.repos.d/epel.repo
 RUN yum -y install php-pecl-mongo --nogpgcheck && yum clean all
 
-# Add the start.sh and mark it executable
-ADD ./start.sh /start.sh
-RUN chmod +x /start.sh
-
 # Expose ports
 EXPOSE 80
 
