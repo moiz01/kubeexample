@@ -14,9 +14,11 @@ RUN pecl update-channels
 RUN printf "no\n" | pecl install mongo && cd /etc && echo "extension=mongo.so" >> /etc/php.d/mongo.ini
 
 # install RockMongo
-RUN cd /root && wget -O rockmongo-1.1.5.zip http://rockmongo.com/downloads/go?id=12 && \
-    unzip rockmongo-1.1.5.zip -d /var/www/ && rm -R /var/www/html && \
-    mv /var/www/rockmongo/ /var/www/html && \
+# RUN cd /root && wget -O rockmongo-1.1.5.zip http://rockmongo.com/downloads/go?id=12 && \
+RUN cd /root && wget -O rockmongo-1.1.7.zip http://rockmongo.com/downloads/go?id=14 && \
+#     unzip rockmongo-1.1.5.zip -d /var/www/ && rm -R /var/www/html && \
+    unzip rockmongo-1.1.7.zip -d /var/www/ && rm -R /var/www/html && \
+    mv /var/www/rockmongo-1.1.7/ /var/www/html && \
     sed -i 's/auth"] = true/auth"] = false/' /var/www/html/config.php
 
 
