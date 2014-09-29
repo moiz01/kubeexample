@@ -10,7 +10,7 @@ desiredState:
     containers:
       - name: rockmongo
         image: localhost:5000/rockmongo
-        ports: [{
-          containerPort: 80,
-          hostPort: 6060
-        }]
+        ports:
+          - Name: WebPort
+            containerPort: 80
+            hostPort: 6060
